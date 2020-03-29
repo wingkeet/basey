@@ -8,7 +8,7 @@ complies with [RFC 4648](https://tools.ietf.org/html/rfc4648).
 ### Prerequisites
 - The file `basey.mjs` has zero external dependencies.
 - In order to run the test cases in `test.mjs` (without specifying the
---experimental-modules runtime flag), Node.js 13.2.0 and above is required.
+`--experimental-modules` runtime flag), Node.js 13.2.0 and above is required.
 
 ### Getting Started
 Base32 is primarily used to encode binary data. One example of its usage is in
