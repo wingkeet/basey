@@ -6,7 +6,8 @@ The Base16, Base32, Base32hex and Base64 implementation described herein
 complies with [RFC 4648](https://tools.ietf.org/html/rfc4648).
 
 ### Prerequisites
-- The file `basey.mjs` has zero external dependencies.
+- The file `basey.mjs` has zero external dependencies. It may be imported into
+a web browser or Node.js.
 - In order to run the test cases in `test.mjs` (without specifying the
 `--experimental-modules` runtime flag), Node.js 13.2.0 and above is required.
 
