@@ -1,5 +1,5 @@
 # basey
-JavaScript implementation of RFC 4648 with ECMAScript modules.
+JavaScript implementation of RFC 4648 with ECMAScript module.
 
 ### Introduction
 The Base16, Base32, Base32hex and Base64 implementation described herein
