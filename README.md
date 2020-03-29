@@ -30,8 +30,8 @@ const base32str = base32.encode(message) // 6CPZRGHDQGBOHAUK4OAYZY4BVDRYDBXQT6MK
 const decoded = base32.decode(base32str, true) // 😘ありがとう😪
 ```
 
-To import any of the `base16`, `base32`, `base32hex` and `base64` objects
-into your own program or script, use the `import` statement.
+Any of the `base16`, `base32`, `base32hex` and `base64` objects can be imported into
+your own program or script.
 ```
 import { base32hex } from './basey.mjs'
 import { base32, base64 } from './basey.mjs'
