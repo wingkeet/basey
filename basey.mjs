@@ -1,5 +1,3 @@
-'use strict'
-
 // https://en.wikipedia.org/wiki/Base64
 // https://en.wikipedia.org/wiki/Base32
 // https://tools.ietf.org/html/rfc4648
