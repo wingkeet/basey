@@ -50,6 +50,10 @@ function main() {
     baseNstr = base64.encode('😉😜😱😺✉✈✌↩')
     log('Base64', baseNstr, base64.decode(baseNstr, true))
 
+    // Test date and time
+    baseNstr = base64.encode(new Date().toLocaleString())
+    log('Base64', baseNstr, base64.decode(baseNstr, true))
+
     // Test languages with multibyte UTF-8 characters
     baseNstr = base32.encode('ありがとう') // japanese
     log('Base32', baseNstr, base32.decode(baseNstr, true))
