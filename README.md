@@ -2,8 +2,9 @@
 JavaScript implementation of RFC 4648 with ECMAScript module.
 
 ### Introduction
-The Base16, Base32, Base32hex and Base64 implementation described herein
-complies with [RFC 4648](https://tools.ietf.org/html/rfc4648).
+Basey (pronounced base-see) is an ECMAScript module that implements the
+Base16, Base32, Base32hex and Base64 encoding schemes described in
+[RFC 4648](https://tools.ietf.org/html/rfc4648).
 
 ### Prerequisites
 - The file `basey.js` has zero external dependencies. It can be directly
