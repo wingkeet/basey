@@ -1,4 +1,4 @@
-import { base16, base32, base32hex, base64 } from './basey.mjs'
+import { base16, base32, base32hex, base64 } from './basey.js'
 
 // Where to send messages to
 let log

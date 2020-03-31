@@ -1,0 +1,14 @@
+{
+  "name": "basey",
+  "version": "1.0.0",
+  "description": "JavaScript implementation of RFC 4648",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node test.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "wingkeet",
+  "license": "MIT"
+}
