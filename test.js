@@ -12,7 +12,7 @@ function testBaseN(baseN, v) {
 
     for (const [i, str] of w.entries()) {
         const foobar = baseN.decode(str, true)
-        console.log(str)
+        console.log(foobar)
         console.assert(foobar === v[i])
     }
 }
