@@ -3,8 +3,8 @@ JavaScript implementation of RFC 4648 with ECMAScript module.
 
 ### Introduction
 Basey (pronounced base-see) is an ECMAScript module that implements the
-Base16, Base32, Base32hex and Base64 encoding schemes described in
-[RFC 4648](https://tools.ietf.org/html/rfc4648).
+Base16, Base32, Base32hex, Base64 and Base64url encoding schemes described
+in [RFC 4648](https://tools.ietf.org/html/rfc4648).
 
 ### Prerequisites
 - The file `basey.js` has zero external dependencies. It can be directly
@@ -32,12 +32,12 @@ const base32str = base32.encode(message) // 6CPZRGHDQGBOHAUK4OAYZY4BVDRYDBXQT6MK
 const decoded = base32.decode(base32str, true) // 😘ありがとう😪
 ```
 
-Any of the `base16`, `base32`, `base32hex` and `base64` objects can be imported into
-your own program or script.
+Any of the `base16`, `base32`, `base32hex`, `base64` and `base64url` objects can be
+imported into your own program or script.
 ```
 import { base32hex } from './basey.js'
 import { base32, base64 } from './basey.js'
-import { base16, base32, base32hex, base64 } from './basey.js'
+import { base16, base32, base32hex, base64, base64url } from './basey.js'
 ```
 
 ### Additional Notes
