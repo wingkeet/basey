@@ -140,6 +140,7 @@ function decodeBaseN(baseNstr, toString, g, charset, encoding) {
 }
 
 const BASE64_CHARSET    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+const BASE64URL_CHARSET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'
 const BASE32_CHARSET    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
 const BASE32HEX_CHARSET = '0123456789ABCDEFGHIJKLMNOPQRSTUV'
 const BASE16_CHARSET    = '0123456789ABCDEF'
@@ -164,6 +165,29 @@ const base64 = {
      */
     decode: function(base64str, toString = false) {
         return decodeBaseN(base64str, toString, 6, BASE64_CHARSET, 'base64')
+    }
+}
+
+const base64url = {
+    /**
+     * Encodes UTF-8 string or array of bytes to base64url string.
+     * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
+     * @returns {string} Base64url string.
+     * @throws {TypeError} Argument `input` must be a string or Uint8Array.
+     */
+    encode: function(input) {
+        return encodeBaseN(input, 6, 4, BASE64URL_CHARSET)
+    },
+
+    /**
+     * Decodes base64url string to UTF-8 string or array of bytes.
+     * @param {string} base64str Base64url string to be decoded.
+     * @param {boolean} [toString=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
+     * @throws {RangeError} Invalid base64url string.
+     */
+    decode: function(base64str, toString = false) {
+        return decodeBaseN(base64str, toString, 6, BASE64URL_CHARSET, 'base64url')
     }
 }
 
@@ -236,4 +260,4 @@ const base16 = {
     }
 }
 
-export { base16, base32, base32hex, base64 }
+export { base16, base32, base32hex, base64, base64url }

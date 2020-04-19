@@ -1,4 +1,4 @@
-import { base16, base32, base32hex, base64 } from './basey.js'
+import { base16, base32, base32hex, base64, base64url } from './basey.js'
 
 function testBaseN(baseN, v) {
     let result = ''
@@ -50,6 +50,19 @@ function main() {
 
     try {
         console.log(base32hex.decode('ABC07UVW')) // throws a RangeError object
+    }
+    catch (err) {
+        console.error(err)
+    }
+
+    try {
+        // Example taken from https://jwt.io/
+        const header = { alg: 'HS256', typ: 'JWT' }
+        const payload = { sub: '1234567890', name: 'John Doe', iat: 1516239022 }
+        console.log(base64url.encode(JSON.stringify(header)))
+        console.log(base64url.encode(JSON.stringify(payload)))
+        console.log(base64url.decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9', true))
+        console.log(base64url.decode('eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ', true))
     }
     catch (err) {
         console.error(err)
