@@ -1,11 +1,12 @@
-import { base16, base32, base32hex, base64, base64url } from './basey.js'
+'use strict'
+const { base16, base32, base32hex, base64, base64url } = require('./basey')
 
 function testBaseN(baseN, v) {
     let result = ''
 
     const w = []
     for (const foobar of v) {
-        const str = baseN.encode(foobar)
+        const str = baseN.encode(foobar, true)
         console.log(str)
         w.push(str)
     }

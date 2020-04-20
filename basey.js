@@ -1,3 +1,4 @@
+'use strict'
 // https://en.wikipedia.org/wiki/Base64
 // https://en.wikipedia.org/wiki/Base32
 // https://tools.ietf.org/html/rfc4648
@@ -46,13 +47,14 @@ Notes:
 /**
  * Encodes UTF-8 string or array of bytes to base N string.
  * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
+ * @param {boolean} includePadding Whether to include "=" padding characters.
  * @param {number} g Number of bits per base N value.
  * @param {number} p Integral multiple of `p` characters in base N string.
  * @param {string} charset The base N character set (alphabet).
  * @returns {string} Base N string.
  * @throws {TypeError} Argument `input` must be a string or Uint8Array.
  */
-function encodeBaseN(input, g, p, charset) {
+function encodeBaseN(input, includePadding, g, p, charset) {
     if (typeof input === 'string') {
         input = new TextEncoder().encode(input)
     }
@@ -87,9 +89,12 @@ function encodeBaseN(input, g, p, charset) {
         }
     })
 
-    // Add "=" padding characters to form an integral multiple of `p` characters
-    const paddedLength = Math.ceil(baseNstr.length / p) * p
-    return baseNstr.padEnd(paddedLength, '=')
+    if (includePadding) {
+        // Add "=" padding characters to form an integral multiple of `p` characters
+        const paddedLength = Math.ceil(baseNstr.length / p) * p
+        baseNstr = baseNstr.padEnd(paddedLength, '=')
+    }
+    return baseNstr
 }
 
 /**
@@ -149,11 +154,12 @@ const base64 = {
     /**
      * Encodes UTF-8 string or array of bytes to base64 string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
+     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base64 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input) {
-        return encodeBaseN(input, 6, 4, BASE64_CHARSET)
+    encode: function(input, includePadding = false) {
+        return encodeBaseN(input, includePadding, 6, 4, BASE64_CHARSET)
     },
 
     /**
@@ -172,11 +178,12 @@ const base64url = {
     /**
      * Encodes UTF-8 string or array of bytes to base64url string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
+     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base64url string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input) {
-        return encodeBaseN(input, 6, 4, BASE64URL_CHARSET)
+    encode: function(input, includePadding = false) {
+        return encodeBaseN(input, includePadding, 6, 4, BASE64URL_CHARSET)
     },
 
     /**
@@ -195,11 +202,12 @@ const base32 = {
     /**
      * Encodes UTF-8 string or array of bytes to base32 string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
+     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base32 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input) {
-        return encodeBaseN(input, 5, 8, BASE32_CHARSET)
+    encode: function(input, includePadding = false) {
+        return encodeBaseN(input, includePadding, 5, 8, BASE32_CHARSET)
     },
 
     /**
@@ -218,11 +226,12 @@ const base32hex = {
     /**
      * Encodes UTF-8 string or array of bytes to base32hex string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
+     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base32hex string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input) {
-        return encodeBaseN(input, 5, 8, BASE32HEX_CHARSET)
+    encode: function(input, includePadding = false) {
+        return encodeBaseN(input, includePadding, 5, 8, BASE32HEX_CHARSET)
     },
 
     /**
@@ -241,11 +250,12 @@ const base16 = {
     /**
      * Encodes UTF-8 string or array of bytes to base16 string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
+     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base16 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input) {
-        return encodeBaseN(input, 4, 1, BASE16_CHARSET)
+    encode: function(input, includePadding = false) {
+        return encodeBaseN(input, includePadding, 4, 1, BASE16_CHARSET)
     },
 
     /**
@@ -260,4 +270,4 @@ const base16 = {
     }
 }
 
-export { base16, base32, base32hex, base64, base64url }
+module.exports = { base16, base32, base32hex, base64, base64url }
