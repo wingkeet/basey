@@ -25,7 +25,7 @@ Uint8Array. If you want a string, pass a `true` value to the second (`toString`)
 ```
 const { base32 } = require('./basey')
 const message = '😘ありがとう😪' // arigatō, “thank you”
-const base32str = base32.encode(message) // 6CPZRGHDQGBOHAUK4OAYZY4BVDRYDBXQT6MKU===
+const base32str = base32.encode(message, true) // 6CPZRGHDQGBOHAUK4OAYZY4BVDRYDBXQT6MKU===
 const decoded = base32.decode(base32str, true) // 😘ありがとう😪
 ```
 
