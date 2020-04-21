@@ -4,7 +4,8 @@ JavaScript implementation of RFC 4648.
 ### Introduction
 Basey (pronounced base-see) is a JavaScript module that implements the
 Base16, Base32, Base32hex, Base64 and Base64url encoding schemes described
-in [RFC 4648](https://tools.ietf.org/html/rfc4648).
+in [RFC 4648](https://tools.ietf.org/html/rfc4648). The APIs are designed
+to be developer-friendly with sensible defaults.
 
 ### Prerequisites
 - The file `basey.js` has zero external dependencies.
