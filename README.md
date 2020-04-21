@@ -41,8 +41,8 @@ const { base16, base32, base32hex, base64, base64url } = require('./basey')
 ### Additional Notes
 - While RFC 4648 specifies that the encode functions should return "=" padding characters,
 these padding characters are commonly removed in real-world applications. Therefore, by
-default, the encode functions in this library do *not* include the padding characters. If
-you want the padding characters, pass a `true` value to the second (`includePadding`)
+default, the encode functions in this library do *not* include the padding characters,
+too. If you want them, pass a `true` value to the second (`includePadding`)
 argument.
 - The file `basey.js` is heavily documented with code comments as well as JSDoc comments.
 You should be able to understand the code quite easily.
