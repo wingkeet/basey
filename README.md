@@ -17,7 +17,7 @@ encoding. The Node.js snippet to do that is shown below.
 ```
 const { base32 } = require('./basey')
 const secret = Uint8Array.from([0, 1, 2, 255, 254, 253]) // Uint8Array(6) [0, 1, 2, 255, 254, 253]
-const base32str = base32.encode(secret, true) // AAAQF7767U======
+const base32str = base32.encode(secret) // AAAQF7767U
 const decoded = base32.decode(base32str) // Uint8Array(6) [0, 1, 2, 255, 254, 253]
 ```
 
@@ -26,7 +26,7 @@ Uint8Array. If you want a string, pass a truthy value to the second (`toString`)
 ```
 const { base32 } = require('./basey')
 const message = '😘ありがとう😪' // arigatō, “thank you”
-const base32str = base32.encode(message, true) // 6CPZRGHDQGBOHAUK4OAYZY4BVDRYDBXQT6MKU===
+const base32str = base32.encode(message) // 6CPZRGHDQGBOHAUK4OAYZY4BVDRYDBXQT6MKU
 const decoded = base32.decode(base32str, true) // 😘ありがとう😪
 ```
 
