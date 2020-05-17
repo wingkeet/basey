@@ -158,7 +158,7 @@ const base64 = {
      * @returns {string} Base64 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input, includePadding = false) {
+    encode(input, includePadding = false) {
         return encodeBaseN(input, includePadding, 6, 4, BASE64_CHARSET)
     },
 
@@ -169,7 +169,7 @@ const base64 = {
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base64 string.
      */
-    decode: function(base64str, toString = false) {
+    decode(base64str, toString = false) {
         return decodeBaseN(base64str, toString, 6, BASE64_CHARSET, 'base64')
     }
 }
@@ -182,7 +182,7 @@ const base64url = {
      * @returns {string} Base64url string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input, includePadding = false) {
+    encode(input, includePadding = false) {
         return encodeBaseN(input, includePadding, 6, 4, BASE64URL_CHARSET)
     },
 
@@ -193,7 +193,7 @@ const base64url = {
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base64url string.
      */
-    decode: function(base64str, toString = false) {
+    decode(base64str, toString = false) {
         return decodeBaseN(base64str, toString, 6, BASE64URL_CHARSET, 'base64url')
     }
 }
@@ -206,7 +206,7 @@ const base32 = {
      * @returns {string} Base32 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input, includePadding = false) {
+    encode(input, includePadding = false) {
         return encodeBaseN(input, includePadding, 5, 8, BASE32_CHARSET)
     },
 
@@ -217,7 +217,7 @@ const base32 = {
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base32 string.
      */
-    decode: function(base32str, toString = false) {
+    decode(base32str, toString = false) {
         return decodeBaseN(base32str, toString, 5, BASE32_CHARSET, 'base32')
     }
 }
@@ -230,7 +230,7 @@ const base32hex = {
      * @returns {string} Base32hex string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input, includePadding = false) {
+    encode(input, includePadding = false) {
         return encodeBaseN(input, includePadding, 5, 8, BASE32HEX_CHARSET)
     },
 
@@ -241,7 +241,7 @@ const base32hex = {
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base32hex string.
      */
-    decode: function(base32str, toString = false) {
+    decode(base32str, toString = false) {
         return decodeBaseN(base32str, toString, 5, BASE32HEX_CHARSET, 'base32hex')
     }
 }
@@ -254,7 +254,7 @@ const base16 = {
      * @returns {string} Base16 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode: function(input, includePadding = false) {
+    encode(input, includePadding = false) {
         return encodeBaseN(input, includePadding, 4, 1, BASE16_CHARSET)
     },
 
@@ -265,7 +265,7 @@ const base16 = {
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base16 string.
      */
-    decode: function(base16str, toString = false) {
+    decode(base16str, toString = false) {
         return decodeBaseN(base16str, toString, 4, BASE16_CHARSET, 'base16')
     }
 }
