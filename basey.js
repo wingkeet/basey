@@ -59,7 +59,7 @@ function encodeBaseN(input, includePadding, g, p, charset) {
         input = new TextEncoder().encode(input)
     }
     else if (!(input instanceof Uint8Array)) {
-        throw new TypeError('Argument `input` must be a string or Uint8Array')
+        throw new TypeError("Argument 'input' must be a string or Uint8Array")
     }
     const bytes = input
 
