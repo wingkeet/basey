@@ -45,8 +45,8 @@ default, the encode functions in this library do *not* include the padding chara
 If you want them, pass a truthy value to the second (`includePadding`) argument.
 - The file `basey.js` is heavily documented with code comments as well as JSDoc comments.
 You should be able to understand the code quite easily.
-- The file `test.js` has more test cases, including the test vectors from RFC 4648. Type
-`node test.js` on the command line to run the tests.
+- The file `main.js` has more test cases, including the test vectors from RFC 4648. Type
+`npm start` on the command line to run the tests.
 
 ### Authors
 * **Steve Leong** - *Initial work*
