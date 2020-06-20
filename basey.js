@@ -100,14 +100,14 @@ function encodeBaseN(input, includePadding, g, p, charset) {
 /**
  * Decodes base N string to UTF-8 string or array of bytes.
  * @param {string} baseNstr Base N string to be decoded.
- * @param {boolean} toString Whether to return the result as a string.
+ * @param {boolean} toStr Whether to return the result as a string.
  * @param {number} g Number of bits per base N value.
  * @param {string} charset The base N character set (alphabet).
  * @param {string} encoding Name of encoding as described in RFC 4648.
  * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
  * @throws {RangeError} Invalid base N string.
  */
-function decodeBaseN(baseNstr, toString, g, charset, encoding) {
+function decodeBaseN(baseNstr, toStr, g, charset, encoding) {
     // Remove trailing "=" padding characters
     baseNstr = baseNstr.replace(/=+$/, '')
 
@@ -141,7 +141,7 @@ function decodeBaseN(baseNstr, toString, g, charset, encoding) {
         }
     })
 
-    return toString ? new TextDecoder().decode(bytes) : bytes
+    return toStr ? new TextDecoder().decode(bytes) : bytes
 }
 
 const BASE64_CHARSET    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
@@ -158,19 +158,21 @@ const base64 = {
      * @returns {string} Base64 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode(input, includePadding = false) {
+    encode(input, options = {}) {
+        const { includePadding = false } = options
         return encodeBaseN(input, includePadding, 6, 4, BASE64_CHARSET)
     },
 
     /**
      * Decodes base64 string to UTF-8 string or array of bytes.
      * @param {string} base64str Base64 string to be decoded.
-     * @param {boolean} [toString=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base64 string.
      */
-    decode(base64str, toString = false) {
-        return decodeBaseN(base64str, toString, 6, BASE64_CHARSET, 'base64')
+    decode(base64str, options = {}) {
+        const { toStr = false } = options
+        return decodeBaseN(base64str, toStr, 6, BASE64_CHARSET, 'base64')
     }
 }
 
@@ -182,19 +184,21 @@ const base64url = {
      * @returns {string} Base64url string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode(input, includePadding = false) {
+    encode(input, options = {}) {
+        const { includePadding = false } = options
         return encodeBaseN(input, includePadding, 6, 4, BASE64URL_CHARSET)
     },
 
     /**
      * Decodes base64url string to UTF-8 string or array of bytes.
      * @param {string} base64str Base64url string to be decoded.
-     * @param {boolean} [toString=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base64url string.
      */
-    decode(base64str, toString = false) {
-        return decodeBaseN(base64str, toString, 6, BASE64URL_CHARSET, 'base64url')
+    decode(base64str, options = {}) {
+        const { toStr = false } = options
+        return decodeBaseN(base64str, toStr, 6, BASE64URL_CHARSET, 'base64url')
     }
 }
 
@@ -206,19 +210,21 @@ const base32 = {
      * @returns {string} Base32 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode(input, includePadding = false) {
+    encode(input, options = {}) {
+        const { includePadding = false } = options
         return encodeBaseN(input, includePadding, 5, 8, BASE32_CHARSET)
     },
 
     /**
      * Decodes base32 string to UTF-8 string or array of bytes.
      * @param {string} base32str Base32 string to be decoded.
-     * @param {boolean} [toString=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base32 string.
      */
-    decode(base32str, toString = false) {
-        return decodeBaseN(base32str, toString, 5, BASE32_CHARSET, 'base32')
+    decode(base32str, options = {}) {
+        const { toStr = false } = options
+        return decodeBaseN(base32str, toStr, 5, BASE32_CHARSET, 'base32')
     }
 }
 
@@ -230,19 +236,21 @@ const base32hex = {
      * @returns {string} Base32hex string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode(input, includePadding = false) {
+    encode(input, options = {}) {
+        const { includePadding = false } = options
         return encodeBaseN(input, includePadding, 5, 8, BASE32HEX_CHARSET)
     },
 
     /**
      * Decodes base32hex string to UTF-8 string or array of bytes.
      * @param {string} base32str Base32hex string to be decoded.
-     * @param {boolean} [toString=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base32hex string.
      */
-    decode(base32str, toString = false) {
-        return decodeBaseN(base32str, toString, 5, BASE32HEX_CHARSET, 'base32hex')
+    decode(base32str, options = {}) {
+        const { toStr = false } = options
+        return decodeBaseN(base32str, toStr, 5, BASE32HEX_CHARSET, 'base32hex')
     }
 }
 
@@ -254,19 +262,21 @@ const base16 = {
      * @returns {string} Base16 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
-    encode(input, includePadding = false) {
+    encode(input, options = {}) {
+        const { includePadding = false } = options
         return encodeBaseN(input, includePadding, 4, 1, BASE16_CHARSET)
     },
 
     /**
      * Decodes base16 string to UTF-8 string or array of bytes.
      * @param {string} base16str Base16 string to be decoded.
-     * @param {boolean} [toString=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base16 string.
      */
-    decode(base16str, toString = false) {
-        return decodeBaseN(base16str, toString, 4, BASE16_CHARSET, 'base16')
+    decode(base16str, options = {}) {
+        const { toStr = false } = options
+        return decodeBaseN(base16str, toStr, 4, BASE16_CHARSET, 'base16')
     }
 }
 

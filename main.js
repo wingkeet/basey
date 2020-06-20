@@ -6,13 +6,13 @@ function testBaseN(baseN, v) {
 
     const w = []
     for (const foobar of v) {
-        const str = baseN.encode(foobar, true)
+        const str = baseN.encode(foobar, { includePadding: true })
         console.log(str)
         w.push(str)
     }
 
     for (const [i, str] of w.entries()) {
-        const foobar = baseN.decode(str, true)
+        const foobar = baseN.decode(str, { toStr: true })
         console.log(foobar)
         console.assert(foobar === v[i])
     }
@@ -31,19 +31,19 @@ function main() {
 
     // Test UTF-8 emojis
     baseNstr = base64.encode('😉😜😱😺✉✈✌↩')
-    console.log('Base64', baseNstr, base64.decode(baseNstr, true))
+    console.log('Base64', baseNstr, base64.decode(baseNstr, { toStr: true }))
 
     // Test date and time
     baseNstr = base64.encode(new Date().toLocaleString())
-    console.log('Base64', baseNstr, base64.decode(baseNstr, true))
+    console.log('Base64', baseNstr, base64.decode(baseNstr, { toStr: true }))
 
     // Test languages with multibyte UTF-8 characters
     baseNstr = base32.encode('ありがとう') // japanese
-    console.log('Base32', baseNstr, base32.decode(baseNstr, true))
+    console.log('Base32', baseNstr, base32.decode(baseNstr, { toStr: true }))
     baseNstr = base32.encode('спасибо') // russian
-    console.log('Base32', baseNstr, base32.decode(baseNstr, true))
+    console.log('Base32', baseNstr, base32.decode(baseNstr, { toStr: true }))
     baseNstr = base32.encode('σας ευχαριστώ') // greek
-    console.log('Base32', baseNstr, base32.decode(baseNstr, true))
+    console.log('Base32', baseNstr, base32.decode(baseNstr, { toStr: true }))
 
     // Test JavaScript Uint8Array class
     baseNstr = base16.encode(Uint8Array.from([0, 1, 2, 255, 254, 253]))
@@ -62,8 +62,8 @@ function main() {
         const payload = { sub: '1234567890', name: 'John Doe', iat: 1516239022 }
         console.log(base64url.encode(JSON.stringify(header)))
         console.log(base64url.encode(JSON.stringify(payload)))
-        console.log(base64url.decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9', true))
-        console.log(base64url.decode('eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ', true))
+        console.log(base64url.decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9', { toStr: true }))
+        console.log(base64url.decode('eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ', { toStr: true }))
     }
     catch (err) {
         console.error(err)
