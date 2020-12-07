@@ -4,7 +4,7 @@
   "description": "JavaScript implementation of RFC 4648",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node main.js"
   },
   "keywords": [],
@@ -13,5 +13,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wingkeet/basey.git"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1"
   }
 }
