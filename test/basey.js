@@ -6,7 +6,7 @@ describe('basey', function() {
     context('RFC 4648 test vectors (foobar)', function() {
         const foobar = ['', 'f', 'fo', 'foo', 'foob', 'fooba', 'foobar']
 
-        it("encodes base64 test vectors", function() {
+        it('encodes base64 test vectors', function() {
             const expected = [
                 '', 'Zg==', 'Zm8=', 'Zm9v', 'Zm9vYg==', 'Zm9vYmE=', 'Zm9vYmFy']
             foobar.forEach(function(f, index) {
