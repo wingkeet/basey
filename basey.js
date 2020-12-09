@@ -158,7 +158,8 @@ const base64 = {
     /**
      * Encodes UTF-8 string or array of bytes to base64 string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
-     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base64 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
@@ -170,7 +171,8 @@ const base64 = {
     /**
      * Decodes base64 string to UTF-8 string or array of bytes.
      * @param {string} base64str Base64 string to be decoded.
-     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base64 string.
      */
@@ -184,7 +186,8 @@ const base64url = {
     /**
      * Encodes UTF-8 string or array of bytes to base64url string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
-     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base64url string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
@@ -196,7 +199,8 @@ const base64url = {
     /**
      * Decodes base64url string to UTF-8 string or array of bytes.
      * @param {string} base64str Base64url string to be decoded.
-     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base64url string.
      */
@@ -210,7 +214,8 @@ const base32 = {
     /**
      * Encodes UTF-8 string or array of bytes to base32 string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
-     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base32 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
@@ -222,7 +227,8 @@ const base32 = {
     /**
      * Decodes base32 string to UTF-8 string or array of bytes.
      * @param {string} base32str Base32 string to be decoded.
-     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base32 string.
      */
@@ -236,7 +242,8 @@ const base32hex = {
     /**
      * Encodes UTF-8 string or array of bytes to base32hex string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
-     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base32hex string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
@@ -248,7 +255,8 @@ const base32hex = {
     /**
      * Decodes base32hex string to UTF-8 string or array of bytes.
      * @param {string} base32str Base32hex string to be decoded.
-     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base32hex string.
      */
@@ -262,7 +270,8 @@ const base16 = {
     /**
      * Encodes UTF-8 string or array of bytes to base16 string.
      * @param {(string|Uint8Array)} input UTF-8 string or array of bytes to be encoded.
-     * @param {boolean} [includePadding=false] Whether to include "=" padding characters.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.includePadding=false] Whether to include "=" padding characters.
      * @returns {string} Base16 string.
      * @throws {TypeError} Argument `input` must be a string or Uint8Array.
      */
@@ -274,7 +283,8 @@ const base16 = {
     /**
      * Decodes base16 string to UTF-8 string or array of bytes.
      * @param {string} base16str Base16 string to be decoded.
-     * @param {boolean} [toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
+     * @param {Object} options Optional object containing options.
+     * @param {boolean} [options.toStr=false] Whether to return the result as a string. Optional; defaults to false if not provided.
      * @returns {(string|Uint8Array)} UTF-8 string or array of bytes.
      * @throws {RangeError} Invalid base16 string.
      */
