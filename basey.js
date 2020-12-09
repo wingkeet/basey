@@ -108,6 +108,10 @@ function encodeBaseN(input, includePadding, g, p, charset) {
  * @throws {RangeError} Invalid base N string.
  */
 function decodeBaseN(baseNstr, toStr, g, charset, encoding) {
+    if (typeof baseNstr !== 'string') {
+        throw new TypeError("Argument 'baseNstr' must be a string")
+    }
+
     // Remove trailing "=" padding characters
     baseNstr = baseNstr.replace(/=+$/, '')
 

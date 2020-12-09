@@ -85,7 +85,39 @@ describe('basey', function() {
         })
     })
 
-    context('with invalid base32hex string', function() {
+    context('with no parameters to encode', function() {
+        it('should throw TypeError', function() {
+            assert.throws(() => { base32.encode() },
+                { name: 'TypeError' }
+            )
+        })
+    })
+
+    context('with invalid input to encode', function() {
+        it('should throw TypeError', function() {
+            assert.throws(() => { base32.encode(12345) },
+                { name: 'TypeError' }
+            )
+        })
+    })
+
+    context('with no parameters to decode', function() {
+        it('should throw TypeError', function() {
+            assert.throws(() => { base32.decode() },
+                { name: 'TypeError' }
+            )
+        })
+    })
+
+    context('with invalid input to decode', function() {
+        it('should throw TypeError', function() {
+            assert.throws(() => { base32.decode(12345) },
+                { name: 'TypeError' }
+            )
+        })
+    })
+
+    context('with invalid base32hex string to decode', function() {
         it('should throw RangeError', function() {
             assert.throws(() => { base32hex.decode('ABC07UVW') },
                 { name: 'RangeError' }
