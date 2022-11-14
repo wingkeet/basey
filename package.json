@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/wingkeet/basey.git"
   },
-  "devDependencies": {
-    "mocha": "^9.0.0"
+  "dependencies": {
+    "mocha": "^10.1.0"
   }
 }
